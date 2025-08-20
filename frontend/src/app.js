@@ -1,26 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 function App() {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    fetch("http://backend:5000/users") // backend service name
-      .then((res) => res.json())
-      .then((data) => setUsers(data))
-      .catch((err) => console.error(err));
-  }, []);
-
-  return (
-    <div>
-      <h1>🚀 React Frontend</h1>
-      <h2>Users from Database:</h2>
-      <ul>
-        {users.map((u) => (
-          <li key={u.id}>{u.name}</li>
-        ))}
-      </ul>
-    </div>
-  );
+  return <h1>Hello from React inside Docker!</h1>;
 }
 
 export default App;
