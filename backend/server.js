@@ -8,10 +8,15 @@ app.use(express.json());
 
 // Database connection
 const db = mysql.createConnection({
-  host: 'db',        // service name from docker-compose
-  user: 'user',
-  password: 'pass123',
-  database: 'mydatabase'
+  // host: 'db',
+  // user: 'user',
+  // password: 'pass123',
+  // database: 'mydatabase'
+  
+  host: process.env.DB_HOST || "db",
+  user: process.env.DB_USER || "user",
+  password: process.env.DB_PASSWORD || "pass123",
+  database: process.env.DB_NAME || "mydatabase"
 });
 
 db.connect(err => {
